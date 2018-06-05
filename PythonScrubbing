@@ -1,0 +1,55 @@
+
+#read dataset
+data.head() 
+
+df = pd.read_csv('Desktop/Melbourne_housing_Full.csv')
+
+#Delete uneeded columns
+del df['Address']
+del df['Method']
+del df['SellerG']
+del df['Date']
+del df['Postcode']
+del df['Lattitude']
+del df['Longtitude']
+del df['Regionname']
+del df['Propertycount']
+
+#Drop any rows that dont have any values################
+#Thresh data needs to have X null values before deletion#####
+#Subset remove data which doesnt have this column,
+
+change to axis=1 to operate on columns 
+
+data.dropna(subset=['title_year'])
+
+df.dropna(axis=0, how='any', thresh=None, subset =None, inplace=True)
+
+#Drop any rows that have NaN values
+data.dropna(how='all')
+
+#Fill columns with NaN values with empty strings. 
+data.field = data.field.fillna('') 
+
+
+#one hot enecoding - non numerical data to numbers
+features_df = pd.get_dummies(df, columns= ['Suburb', 'CouncilArea','Type'])
+
+#Normalize data types, convert strings to int
+data = pd.read_csv('Title', dtype={'field': int})
+
+#Convert strings to upper or lower
+data['movie_title'].str.upper
+
+#remove trailing whitespace
+data['movie_title'].str.strip()
+
+#rename columns 
+data.rename(columns = {‘title_year’:’release_date’, ‘movie_facebook_likes’:’facebook_likes’})
+
+
+#Save The File
+data.to_csv(‘cleanfile.csv’ encoding=’utf-8’
+
+
+
